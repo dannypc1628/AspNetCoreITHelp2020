@@ -18,11 +18,12 @@ namespace WebApplication8.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index(string name,int? age)
+        public IActionResult Index(HomeViewModel data)
         {
-            ViewBag.myName = name;
-            ViewBag.age = age;
-            return View();
+            ViewBag.myName = data.Name;
+            ViewBag.age = data.Age;
+            var model = new HomeViewModel() { Name = data.Name, Age = data.Age };
+            return View(model);
         }
 
         public IActionResult Privacy()

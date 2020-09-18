@@ -1,11 +1,17 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+@model WebApplication8.Models.HomeViewModel;
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
     安安你好~~~ @(ViewBag.myName)好帥~~~ 永遠的~@(ViewBag.age)
     <br />
-    @ViewBag.myName
+    這是ViewBag=>@ViewBag.myName
+    <br />
+    這是ViewData=>@ViewData["myName"]
+
+    <p>這是p段落，名字是@(Model.Name)，年齡@(Model.Age)</p>
+
 </div>
