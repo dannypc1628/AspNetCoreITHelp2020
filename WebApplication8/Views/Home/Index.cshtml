@@ -1,6 +1,6 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
-    Layout = "_Layout2";
+    //Layout = "_Layout2";
 }
 @model WebApplication8.Models.HomeViewModel;
 
@@ -11,8 +11,13 @@
     <br />
     這是ViewBag=>@ViewBag.myName
     <br />
-    這是ViewData=>@ViewData["myName"]
+    <!-- 
+        這是ViewData=>@ViewData["myName"]
+        -->
 
+    @*
     <p>這是p段落，名字是@(Model.Name)，年齡@(Model.Age)</p>
+    *@
+        
 
 </div>
