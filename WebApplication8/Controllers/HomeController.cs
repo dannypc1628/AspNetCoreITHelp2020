@@ -28,7 +28,11 @@ namespace WebApplication8.Controllers
 
         public IActionResult Privacy()
         {
-            return View();
+
+            AdoNetDBModel db = new AdoNetDBModel();
+            var dataList = db.Get();
+
+            return View(dataList);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
