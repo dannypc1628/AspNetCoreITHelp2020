@@ -13,9 +13,12 @@ namespace WebApplication8.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        private readonly AspCoreIThelp2020Context _context;
+
+        public HomeController(ILogger<HomeController> logger,AspCoreIThelp2020Context context)
         {
             _logger = logger;
+            _context = context;
         }
 
         public IActionResult Index(HomeViewModel data)
@@ -29,10 +32,11 @@ namespace WebApplication8.Controllers
         public IActionResult Privacy()
         {
 
-            AdoNetDBModel db = new AdoNetDBModel();
-            var dataList = db.Get();
+            //AdoNetDBModel db = new AdoNetDBModel();
+            //var dataList = db.Get();
+            var data = _context.Product.Where(d=>d.Id>2);
 
-            return View(dataList);
+            return View(data);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
