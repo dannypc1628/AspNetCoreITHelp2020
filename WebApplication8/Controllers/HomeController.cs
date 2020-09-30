@@ -34,7 +34,7 @@ namespace WebApplication8.Controllers
 
             //AdoNetDBModel db = new AdoNetDBModel();
             //var dataList = db.Get();
-            var data = _context.Product.Where(d=>d.Id>2);
+            var data = _context.Product.Where(d=>d.Price>20000).ToList();
 
             return View(data);
         }
