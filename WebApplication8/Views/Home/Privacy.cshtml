@@ -8,5 +8,7 @@
 
 @foreach(var p in Model)
 {
-    <p>@($"{p.Id} - {p.Name} -{p.Price}")</p>
+    <a asp-area="" asp-controller="Product" asp-action="GetProduct" asp-route-id="@p.Id">
+            @($"{p.Id} - {p.Name} -{p.Price}")</a>
+    <br />
 }
