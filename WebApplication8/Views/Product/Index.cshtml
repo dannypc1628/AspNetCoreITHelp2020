@@ -1,0 +1,25 @@
+﻿@model List<Product>;
+@{
+    ViewData["Title"] = "Privacy Policy";
+}
+<h1>@ViewData["Title"]</h1>
+
+<p>Product 列表</p>
+
+<a asp-area="" asp-controller="Product" asp-action="AddProduct">
+    [新增]
+</a>
+<br />
+@foreach (var p in Model)
+{
+    <a asp-area="" asp-controller="Product" asp-action="GetProduct" asp-route-id="@p.Id">
+        @($"{p.Id} - {p.Name} -{p.Price}")
+    </a>
+    <a asp-area="" asp-controller="Product" asp-action="UpdateProduct" asp-route-id="@p.Id">
+        [修改]
+    </a>
+    <a asp-area="" asp-controller="Product" asp-action="Delete" asp-route-id="@p.Id">
+        [刪除]
+    </a>
+    <br />
+}

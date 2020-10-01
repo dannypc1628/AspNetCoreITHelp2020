@@ -1,0 +1,19 @@
+﻿@model Product;
+
+@if (Model == null)
+{
+    <p>沒有此產品</p>
+}
+else
+{
+    @Model.Id
+    <br />
+    @Model.Name
+    <br />
+    @Model.Price
+    <br />
+    <form asp-action="DoDelete">
+        <input type="hidden" asp-for="@Model.Id" />
+        <input type="submit" value="確定刪除" />
+    </form>
+}
