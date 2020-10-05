@@ -31,12 +31,16 @@ namespace WebApplication8.Controllers
         [HttpPost]
         public IActionResult AddProduct(Product product)
         {
-            var last = _context.Product.OrderByDescending(d=>d.Id).FirstOrDefault();
-            product.Id = last.Id + 1;
-            _context.Product.Add(product);
-            _context.SaveChanges();
+            if (ModelState.IsValid)
+            {
+                var last = _context.Product.OrderByDescending(d => d.Id).FirstOrDefault();
+                product.Id = last.Id + 1;
+                _context.Product.Add(product);
+                _context.SaveChanges();
 
-            return RedirectToAction("Index");
+                return RedirectToAction("Index");
+            }
+            return View(product);
         }
 
         public IActionResult GetProduct(int ID)

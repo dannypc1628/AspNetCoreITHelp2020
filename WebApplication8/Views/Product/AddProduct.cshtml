@@ -2,11 +2,17 @@
 
 <form asp-action="AddProduct">
     <input type="hidden" asp-for="Id" />
-    <lable asp-for="Name"></lable>
+    <label asp-for="Name"></label>
     <input type="text" asp-for="Name" />
+    <span asp-validation-for="Name" class="text-danger"></span>
 
-    <lable asp-for="Price"></lable>
+    <label asp-for="Price"></label>
     <input type="text" asp-for="Price" />
+    <span asp-validation-for="Price" class="text-danger"></span>
 
     <input type="submit" value="送出" />
 </form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
