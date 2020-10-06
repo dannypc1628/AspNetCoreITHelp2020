@@ -9,7 +9,7 @@
     <label asp-for="Price"></label>
     <input type="text" asp-for="Price" />
     <span asp-validation-for="Price" class="text-danger"></span>
-
+    @Html.LabelFor(m => m.Name, new { @class = "text-primary" })
     <input type="submit" value="送出" />
 </form>
 
